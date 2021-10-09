@@ -3,7 +3,9 @@
 <div>
 	<%= link_to 'Agregar usuario', new_user_path %>	
 </div>
-
+<% flash.each do |key, value| %>
+	<p><%=value%></p>
+<% end %>
 <table>
 	<thead>
 		<tr>Name</tr>
@@ -17,6 +19,7 @@
 				<td><%= user.name%></td>
 				<td><%= user.lastname%></td>
 				<td><%= user.email%></td>
+				<td><%= link_to 'ver', user_path(user) %></td>
 			</tr>
 		<% end %>
 	</tbody>

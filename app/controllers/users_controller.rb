@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:id])
+    unless @user
+      flash[:error] = "No se ha encontrado el usuario"
+      redirect_to root_path
+    end
   end
 
   def new
@@ -11,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    n_params = params[:user]
-    @user = User.new(name: n_params[:name], lastname: n_params[:lastname], email: n_params[:email])
+    @user = User.new(user_params)
     @user.save
     if @user
       redirect_to root_path
