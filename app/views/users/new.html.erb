@@ -1,2 +1,22 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+<h2>Soy el formulario para crear un nuevo usuario</h2>
+
+<%= form_for @user, url:{action: :create} do |data| %>
+	<div>
+		<label>Nombre:</label>
+		<%= data.text_field :name %>	
+	</div>
+	<div>
+		<label>Apellido:</label>
+		<%= data.text_field :lastname %>	
+	</div>
+	<div>
+		<label>email:</label>
+		<%= data.text_field :email %>	
+	</div>
+	
+	<div>
+		<%= data.submit 'Crear usuario' %>	
+	</div>
+<% end %>
