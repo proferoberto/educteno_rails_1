@@ -1,2 +1,21 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_for @user, url:{action: :update} do |data| %>
+	<div>
+		<label>Nombre:</label>
+		<%= data.text_field :name %>	
+	</div>
+	<div>
+		<label>Apellido:</label>
+		<%= data.text_field :lastname %>	
+	</div>
+	<div>
+		<label>email:</label>
+		<%= data.text_field :email %>	
+	</div>
+	
+	<div>
+		<%= data.submit 'Actualizar usuario' %>	
+	</div>
+<% end %>
